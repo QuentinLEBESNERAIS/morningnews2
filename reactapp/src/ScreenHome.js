@@ -54,6 +54,7 @@ function ScreenHome(props) {
     }  else {
       setErrorsSignin(body.error)
     }
+    console.log(body.token)
   }
 
   if(userExists){
