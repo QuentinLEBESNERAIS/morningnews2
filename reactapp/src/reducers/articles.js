@@ -31,7 +31,11 @@ export default function(wishList = [], action){
 
         return wishListCopy
         
-    } else {
+    } else if(action.type=="addArticles"){
+        console.log("reducer",action.articleLiked)
+        return action.articleLiked
+
+    }else{
         return wishList
     }
 }

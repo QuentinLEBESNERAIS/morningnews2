@@ -16,7 +16,7 @@ function ScreenSource(props) {
     var articles = null
     const getBddArticles = async() => {
       const rowArticles = await fetch(`/import-bdd?token=${token}`)
-      articles = rowArticles.json()
+      articles =await rowArticles.json()
       console.log(articles)
     }
     getBddArticles()    
@@ -94,7 +94,7 @@ function mapDispatchToProps(dispatch){
       dispatch({type: 'changeLang', selectedLang: selectedLang})
     },
     addToWishList: function(article){
-      dispatch({type: 'addArticle',
+      dispatch({type: 'addArticles',
         articleLiked: article
       })
     }
