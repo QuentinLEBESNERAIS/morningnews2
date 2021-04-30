@@ -27,9 +27,9 @@ function ScreenSource(props) {
       
       //Sauvegarde de la langue lors du click
       var reponse = await fetch('/update-language', {
-        method: 'PUT',
+        method: 'POST',
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body: `token=${props.token}&language=${props.selectedLang}`
+        body: `token=${props.token}&language=${selectedLang}`
       })
 
     }
@@ -70,7 +70,7 @@ function ScreenSource(props) {
 }
 
 function mapStateToProps(state){
-  return   {selectedLang: state.selectedLang,  token : state.token}
+  return   {selectedLang: state.selectedLang,  token: state.token}
                   
 }
 

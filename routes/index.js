@@ -38,6 +38,7 @@ router.post('/sign-up', async function(req,res,next){
       email: req.body.emailFromFront,
       password: hash,
       token: uid2(32),
+      language: 'fr'
     })
   
     saveUser = await newUser.save()
@@ -107,9 +108,9 @@ res.json(userSaved)
 /*GESTION LANGUES BDD**/
 router.post('/update-language', async function(req,res,next){
   var user = await userModel.updateOne({token:req.body.token},{language :req.body.language })
-  console.log(req.body.token)
-  var userSaved = await user.save()
-res.json(userSaved)
+  console.log(req.body.language,"-----------------")
+  //var userSaved = await user.save()
+res.json(user)
 })
 
 router.delete('/delete-article', async function(req,res,next){
