@@ -13,11 +13,14 @@ function ScreenSource(props) {
 /*INITIALISATION APP IMPORT WISHLIST */
   useEffect(() => {
     var token = props.token
+    var articles = null
     const getBddArticles = async() => {
-      const articles = await fetch(`/import-bdd/${token}`)
+      const rowArticles = await fetch(`/import-bdd?token=${token}`)
+      articles = rowArticles.json()
+      console.log(articles)
     }
-
     getBddArticles()    
+    props.addToWishList(articles)
   }, [])
 
 

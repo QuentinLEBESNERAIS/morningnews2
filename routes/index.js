@@ -104,6 +104,13 @@ var userSaved = await user.save()
 res.json(userSaved)
 })
 
+router.get('/import-bdd/', async function(req,res,next){
+  var user = await userModel.findOne({token:req.query.token})
+  var articles = user.articles
+  console.log(articles)
+  res.json(articles)
+})
+
 /*GESTION LANGUES BDD**/
 router.post('/update-language', async function(req,res,next){
   var user = await userModel.updateOne({token:req.body.token},{language :req.body.language })
