@@ -120,6 +120,7 @@ function ScreenMyArticles(props) {
 }
 
 function mapStateToProps(state){
+  console.log("props",state)
   return {myArticles: state.wishList,token:state.token}
   
 }

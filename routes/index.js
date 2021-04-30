@@ -99,10 +99,18 @@ router.post('/add-article', async function(req,res,next){
   console.log(req.body.token)
   user.articles.push(
     {title:req.body.title,
-    img:req.body.img,
-    content:req.body.content,})
+    urlToImage:req.body.urlToImage,
+    content:req.body.content,
+    description:req.body.description})
 var userSaved = await user.save()
 res.json(userSaved)
+})
+
+router.get('/import-bdd/', async function(req,res,next){
+  var user = await userModel.findOne({token:req.query.token})
+  var articles = user.articles
+  console.log(articles)
+  res.json(articles)
 })
 
 /*GESTION LANGUES BDD**/

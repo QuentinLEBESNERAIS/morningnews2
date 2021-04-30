@@ -13,11 +13,15 @@ function ScreenSource(props) {
 /*INITIALISATION APP IMPORT WISHLIST */
   useEffect(() => {
     var token = props.token
+    var articles = null
     const getBddArticles = async() => {
-      const articles = await fetch(`/import-bdd/${token}`)
+      const rowArticles = await fetch(`/import-bdd?token=${token}`)
+      articles = await rowArticles.json()
+      console.log(articles)
+      props.addToWishList(articles)
     }
-
     getBddArticles()    
+    
   }, [])
 
 
@@ -103,7 +107,7 @@ function mapDispatchToProps(dispatch){
       dispatch({type: 'changeLang', selectedLang: selectedLang})
     },
     addToWishList: function(article){
-      dispatch({type: 'addArticle',
+      dispatch({type: 'addArticles',
         articleLiked: article
       })
     }

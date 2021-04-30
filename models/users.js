@@ -2,8 +2,9 @@ const mongoose = require('mongoose')
 
 const articlesShema = mongoose.Schema({
     title:String,
-    img:String,
+    urlToImage:String,
     content:String,
+    description:String,
 })
 
 const userSchema = mongoose.Schema({
