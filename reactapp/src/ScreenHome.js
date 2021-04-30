@@ -30,6 +30,7 @@ function ScreenHome(props) {
 
     if(body.result == true){
       props.addToken(body.token)
+      props.changeLang(body.user.language)
       setUserExists(true)
       
     } else {
@@ -49,6 +50,7 @@ function ScreenHome(props) {
 
     if(body.result == true){
       props.addToken(body.token)
+      
       setUserExists(true)
       
     }  else {
@@ -112,7 +114,9 @@ function mapDispatchToProps(dispatch){
   return {
     addToken: function(token){
       dispatch({type: 'addToken', token: token})
-    }
+    },
+
+
   }
 }
 

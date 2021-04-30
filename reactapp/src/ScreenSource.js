@@ -51,12 +51,12 @@ function ScreenSource(props) {
 
   var borderEn = {width:'40px', margin:'10px',cursor:'pointer'}
   if (selectedLang=='en'){
-    borderEn = {width:'40px', margin:'10px',cursor:'pointer', border: '2px solid red'}
+    borderEn = {width:'40px', margin:'10px',cursor:'pointer', border: '3px solid red'}
   }
 
   var borderFr = {width:'40px', margin:'10px',cursor:'pointer'}
   if (selectedLang=='fr'){
-    borderFr = {width:'40px', margin:'10px',cursor:'pointer', border: '2px solid red'}
+    borderFr = {width:'40px', margin:'10px',cursor:'pointer', border: '3px solid red'}
   }
 
 
