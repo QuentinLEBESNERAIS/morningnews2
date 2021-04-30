@@ -112,5 +112,15 @@ router.post('/update-language', async function(req,res,next){
 res.json(userSaved)
 })
 
+router.delete('/delete-article', async function(req,res,next){
+  var user = await userModel.findOne({token:req.body.token})
+  console.log(user.articles)
+  var tempTab = user.articles
+  var newTab = tempTab.filter(x=>x.title!==req.body.title)
+  user.articles = newTab
+  await user.save()
+res.json("article supprimé")
+})
+
 
 module.exports = router;
