@@ -10,7 +10,13 @@ function ScreenSource(props) {
   const [sourceList, setSourceList] = useState([])
   const [selectedLang, setSelectedLang] = useState(props.selectedLang)
 
+/*INITIALISATION APP IMPORT WISHLIST */
+  useEffect(() => {
+    
+  }, [])
 
+
+/*GESTION LANGUE */
   useEffect(() => {
     const APIResultsLoading = async() => {
       var langue = 'fr'
