@@ -54,7 +54,7 @@ function ScreenArticlesBySource(props) {
       const data = await fetch('/add-article', {
         method: 'POST',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: `token=${token}&title=${article.title}&img=${article.urlToImage}&content=${article.content}`
+        body: `token=${token}&title=${article.title}&urlToImage=${article.urlToImage}&content=${article.content}&description=${article.description}`
       })
     }
 

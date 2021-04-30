@@ -16,11 +16,12 @@ function ScreenSource(props) {
     var articles = null
     const getBddArticles = async() => {
       const rowArticles = await fetch(`/import-bdd?token=${token}`)
-      articles =await rowArticles.json()
+      articles = await rowArticles.json()
       console.log(articles)
+      props.addToWishList(articles)
     }
     getBddArticles()    
-    props.addToWishList(articles)
+    
   }, [])
 
 
