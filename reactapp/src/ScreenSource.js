@@ -21,9 +21,17 @@ function ScreenSource(props) {
         var country = 'us'
       }
       props.changeLang(selectedLang)
-      const data = await fetch(`https://newsapi.org/v2/sources?language=${langue}&country=${country}&apiKey=b32c8b844d1243b1a7998d8228910f50`)
+      const data = await fetch(`https://newsapi.org/v2/sources?language=${langue}&country=${country}&apiKey=0743bd9ba86c48a3b4a615993d6b387a`)
       const body = await data.json()
       setSourceList(body.sources)
+      
+      //Sauvegarde de la langue lors du click
+      var reponse = await fetch('/update-language', {
+        method: 'PUT',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body: `token=${props.token}&language=${props.selectedLang}`
+      })
+
     }
 
     APIResultsLoading()
@@ -62,8 +70,13 @@ function ScreenSource(props) {
 }
 
 function mapStateToProps(state){
-  return {selectedLang: state.selectedLang}
+  return   {selectedLang: state.selectedLang,  token : state.token}
+                  
 }
+
+
+
+
 
 function mapDispatchToProps(dispatch){
   return {

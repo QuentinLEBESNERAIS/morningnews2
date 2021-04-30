@@ -104,5 +104,13 @@ var userSaved = await user.save()
 res.json(userSaved)
 })
 
+/*GESTION LANGUES BDD**/
+router.post('/update-language', async function(req,res,next){
+  var user = await userModel.updateOne({token:req.body.token},{language :req.body.language })
+  console.log(req.body.token)
+  var userSaved = await user.save()
+res.json(userSaved)
+})
+
 
 module.exports = router;
