@@ -12,6 +12,7 @@ const userSchema = mongoose.Schema({
     email: String,
     password: String,
     token: String,
+    language : String,
 })
 
 const userModel = mongoose.model('users', userSchema)
