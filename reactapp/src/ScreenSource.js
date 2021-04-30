@@ -30,6 +30,7 @@ function ScreenSource(props) {
       if(selectedLang == 'en'){
         var langue = 'en'
         var country = 'us'
+        
       }
       props.changeLang(selectedLang)
       const data = await fetch(`https://newsapi.org/v2/sources?language=${langue}&country=${country}&apiKey=0743bd9ba86c48a3b4a615993d6b387a`)
@@ -48,13 +49,24 @@ function ScreenSource(props) {
     APIResultsLoading()
   }, [selectedLang])
 
+  var borderEn = {width:'40px', margin:'10px',cursor:'pointer'}
+  if (selectedLang=='en'){
+    borderEn = {width:'40px', margin:'10px',cursor:'pointer', border: '2px solid red'}
+  }
+
+  var borderFr = {width:'40px', margin:'10px',cursor:'pointer'}
+  if (selectedLang=='fr'){
+    borderFr = {width:'40px', margin:'10px',cursor:'pointer', border: '2px solid red'}
+  }
+
+
   return (
     <div>
         <Nav/>
        
        <div style={{display:'flex', justifyContent:'center', alignItems:'center'}} className="Banner">
-          <img style={{width:'40px', margin:'10px',cursor:'pointer'}} src='/images/fr.png' onClick={() => setSelectedLang('fr')} />
-          <img style={{width:'40px', margin:'10px',cursor:'pointer'}} src='/images/uk.png' onClick={() => setSelectedLang('en')} /> 
+          <img style={borderFr} src='/images/fr.png' onClick={() => setSelectedLang('fr')} />
+          <img style={borderEn} src='/images/uk.png' onClick={() => setSelectedLang('en')} /> 
         </div>
 
        <div className="HomeThemes">
