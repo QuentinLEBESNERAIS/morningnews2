@@ -94,8 +94,14 @@ router.post('/sign-in', async function(req,res,next){
 
 /*GESTION ARTICLES BDD */
 router.post('/add-article', async function(req,res,next){
-
-  
+  var user = await userModel.findOne({token:req.body.token})
+  console.log(req.body.token)
+  user.articles.push(
+    {title:req.body.title,
+    img:req.body.img,
+    content:req.body.content,})
+var userSaved = await user.save()
+res.json(userSaved)
 })
 
 

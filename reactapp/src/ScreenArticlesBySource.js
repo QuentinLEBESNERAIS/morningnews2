@@ -46,8 +46,19 @@ function ScreenArticlesBySource(props) {
   }
 
   var addArticle = (article)=>{
+  
+    var token = props.token
+    console.log(token)
     props.addToWishList(article)
-    
+    const addArticleToBdd = async() => {
+      const data = await fetch('/add-article', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: `token=${token}&title=${article.title}&img=${article.urlToImage}&content=${article.content}`
+      })
+    }
+
+    addArticleToBdd()  
   }
 
   return (
@@ -122,7 +133,11 @@ function mapDispatchToProps(dispatch){
   }
 }
 
+function mapStateToProps(state){
+  return {token:state.token}
+}
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ScreenArticlesBySource)
