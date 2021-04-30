@@ -45,6 +45,11 @@ function ScreenArticlesBySource(props) {
     setVisible(false)
   }
 
+  var addArticle = (article)=>{
+    props.addToWishList(article)
+    
+  }
+
   return (
     <div>
          
@@ -72,7 +77,7 @@ function ScreenArticlesBySource(props) {
                   }
                   actions={[
                       <Icon type="read" key="ellipsis2" onClick={() => showModal(article.title,article.content)} />,
-                      <Icon type="like" key="ellipsis" onClick={()=> {props.addToWishList(article)}} />
+                      <Icon type="like" key="ellipsis" onClick={()=> addArticle(article)} />
                   ]}
                   >
 

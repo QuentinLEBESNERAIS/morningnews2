@@ -92,4 +92,11 @@ router.post('/sign-in', async function(req,res,next){
 
 })
 
+/*GESTION ARTICLES BDD */
+router.post('/add-article', async function(req,res,next){
+
+  
+})
+
+
 module.exports = router;
